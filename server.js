@@ -21,6 +21,8 @@ const app = express();
 const port = 3000;
 
 // Statically vended files
+app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/axios', express.static(__dirname + '/node_modules/axios/dist/'));
 app.use(express.static('public'));
 
