@@ -3,17 +3,17 @@ const { Client } = require('pg');
 var axios = require('axios');
 
 // set up database
-// const client = new Client({
-//   user: 'postgres',
-//   host: 'http://10.0.2.2',
-//   database: 'cse412',
-//   password: 'password',
-//   port: 5432,
-// });
-// client.connect(function(err) {
-//   if (err) throw err;
-//   console.log("Connected!");
-// });
+const client = new Client({
+  user: 'postgres',
+  host: '192.168.1.31',
+  database: 'cse412',
+  password: 'postgres',
+  port: 5432,
+});
+client.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
 
 
 // Set up server
