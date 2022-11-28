@@ -11,8 +11,8 @@ const client = new Client({
   port: 5432,
 });
 client.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
+  if (err) console.log(err);
+  else console.log("Connected!");
 });
 
 
@@ -28,13 +28,9 @@ app.use(express.static('public'));
 
 // By default go to index.htm route
 app.get('/', function (req, res) {
-  res.redirect('/index.htm')
+  res.redirect('/index.html')
 })
 
-// Set routes
-app.get('/index.htm', function (req, res) {
-  res.sendFile( __dirname + "/" + "index.htm" );
-})
 
 app.get('/get_profile', function (req, res) {
   response = {
