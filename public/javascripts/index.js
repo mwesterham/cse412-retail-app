@@ -1,6 +1,6 @@
 async function myfunction() {
   const result = await axios({
-    url: '/get_profile',
+    url: '/get_all_listings',
     method: 'GET',
   });
   const json_result = result.data;
