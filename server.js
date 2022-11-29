@@ -58,7 +58,7 @@ app.get('/get_listing', async function (req, res) {
 app.get('/get_buyer_cart', async function (req, res) {
   var buyer_id = req.query.buyer_id;
   try {
-    const result = await client.query(`SELECT buyer_id, listing.* FROM contains, listing WHERE contains.listing_id = listing.listing_id AND buyer_id = ${buyer_id};`);
+    const result = await client.query(`SELECT listing.*, contains.* FROM contains, listing WHERE contains.listing_id = listing.listing_id AND buyer_id = ${buyer_id};`);
     res.end(JSON.stringify(result.rows));
   }
   catch(e) {
@@ -66,13 +66,20 @@ app.get('/get_buyer_cart', async function (req, res) {
   }
 })
 
-// example: http://localhost:3000/add_to_cart/?buyer_id=289&listing_id=1099
+// example: http://localhost:3000/add_to_cart/?buyer_id=289&listing_id=1099&quantity=3&status=ORDERED
 app.get('/add_to_cart', async function (req, res) {
   var buyer_id = req.query.buyer_id;
   var listing_id = req.query.listing_id;
+  var quantity = req.query.quantity;
+  var status = req.query.status;
+  
+  var days_offset = Math.floor(Math.random() * 5);
+  var date = new Date();
+  date.setDate(date.getDate() + days_offset);
+  var delivery_time = date.toISOString().split('T')[0];
 
   try {
-    await client.query(`INSERT INTO contains VALUES(${listing_id}, ${buyer_id});`);
+    await client.query(`INSERT INTO contains VALUES(${listing_id}, ${buyer_id}, ${quantity}, '${delivery_time}', '${status}');`);
     res.end("SUCCESS");
   }
   catch(e) {
