@@ -5,10 +5,10 @@ var axios = require('axios');
 // set up database
 const client = new Client({
   user: 'postgres',
-  host: '192.168.1.31',
+  host: 'localhost',
   database: 'cse412',
   password: 'postgres',
-  port: 5432,
+  port: 4444,
 });
 client.connect(function(err) {
   if (err) console.log(err);
