@@ -43,7 +43,7 @@ app.get('/cart.html', function(req,res){
   res.sendFile( __dirname + "/views/" + "ShoppingCart.html" );
 })
 
-app.get('/cart.html', function(req,res){
+app.get('/CreateAccount.html', function(req,res){
   res.sendFile( __dirname + "/views/" + "LotsOfUserInfo.html" );
 })
 
