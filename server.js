@@ -47,6 +47,9 @@ app.get('/CreateAccount.html', function(req,res){
   res.sendFile( __dirname + "/views/" + "LotsOfUserInfo.html" );
 })
 
+app.get('/BuyerView.html', function(req,res){
+  res.sendFile( __dirname + "/views/" + "BuyerViewTable.html" );
+})
 
 // example: http://localhost:3000/get_all_listings
 app.get('/get_all_listings', async function (req, res) {
