@@ -1,124 +1,42 @@
 <head>
-  <style>
+  <meta charset="utf-8">
+  <title>CSE412 Web App</title>
 
-.nav {
-  background-color: rgb(0, 255, 234); 
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-    
-.nav li {
-  display: inline-block;
-  font-size: 20px;
-  padding: 20px;
-}
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/webpage.css" type="text/css">
 
-.Logout{
-        background-color:rgb(46, 164, 79);
-        color:white;
-        border-radius: 5px;
-        font-weight: bold;
-        font-size:15px;
-        width: 85px;
-        height: 35px;
-        border:none;
-        cursor:pointer;
-        margin-left:15px;
-        margin-right: 15px;
-        position: absolute;
-        right: 100px;
-        padding: 10px;
-    }
-    
-.Logout:hover{
-    box-shadow: 5px 5px 5px rgba(0,0 ,0 , 0.15);
-}
-</style>
+  <script src="jquery/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="axios/axios.js"></script>
+  <script src="javascripts/Webpage.js" charset="utf-8"></script>
 
 </head>
 
 
-  
+
 <body>
 
   <ul class="nav">
-    <li><p>CSE412</p></li>
-    <li><button class="Logout" onclick="window.location.href='https://www.google.com/';">Logout</button></li>
+    <li>
+      <p>CSE412</p>
+    </li>
   </ul>
 
-  <div id="button-container">
-    
+  <div class="d-flex justify-content-center">
     <label for="Username">Username:</label>
     <input type="text" id="Username" name="Username" maxlength="16">
     <br>
-
-    <button onclick="window.location.href='AddProduct.html';">
-      Login 
-    </button>
-    <button onclick="window.location.href='LotsOfUserInfo.html';">
-      Create Account 
-    </button>
-
   </div>
-</body> 
 
-  <footer>
-    <p>Author: Matthew, Cameron, Alex, Fabian</p>
-    <p><a href="https://www.google.com/">Google for now</a></p>
-  </footer>
+  <div class="d-flex justify-content-center">
+    <a href="/AddProduct.html" class="btn btn-info" role="button">Login</a>
+    <a href="/LotsOfUserInfo.html" class="btn btn-info" role="button">Create Account</a>
+    <br>
+  </div>
 
+</body>
 
-<head>
-<style>
-
-/*
-.header {
-    text-align: left;
-    background: #1abc9c;
-    color: white;
-    font-size: 30px;
-    /*padding-right: 200px;
-    overflow:hidden;
-  }  412
-*/
-
-
-.ClassName{
-  overflow: hidden;
-  background-color: #333;
-}
-
-.ClassName a {
-  color: #f2f2f2;
-  text-align: center;
-  font-size: 17px;
-}
-
-.ClassName a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.LogoutButton
-{
-  float:right
-}
-
-
-
-  #button-container {text-align: center;}
-
-  footer {
-  text-align: center;
-  padding: 3px;
-  background-color: DarkSalmon;
-  color: white;
-}
-  </style>
-  
-</head>
-
-
-
-  
+<footer>
+  <p>Author: Matthew, Cameron, Alex, Fabian</p>
+  <p><a href="https://www.google.com/">Google for now</a></p>
+</footer>

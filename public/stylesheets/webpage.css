@@ -1,0 +1,21 @@
+.nav {
+    background-color: rgb(0, 255, 234);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li {
+    display: inline-block;
+    font-size: 20px;
+    padding: 20px;
+
+}
+
+
+footer {
+    text-align: center;
+    padding: 3px;
+    background-color: DarkSalmon;
+    color: white;
+}

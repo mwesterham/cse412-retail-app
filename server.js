@@ -28,11 +28,11 @@ app.use(express.static('public'));
 
 // By default go to index.html route
 app.get('/', function (req, res) {
-  res.redirect('/index.html')
+  res.redirect('/Webpage.html')
 })
 
-app.get('/index.html', function (req, res) {
-  res.sendFile( __dirname + "/views/" + "index.html" );
+app.get('/Webpage.html', function (req, res) {
+  res.sendFile( __dirname + "/views/" + "Webpage.html" );
 })
 
 app.get('/addproduct.html', function(req,res){
@@ -41,6 +41,10 @@ app.get('/addproduct.html', function(req,res){
 
 app.get('/cart.html', function(req,res){
   res.sendFile( __dirname + "/views/" + "ShoppingCart.html" );
+})
+
+app.get('/cart.html', function(req,res){
+  res.sendFile( __dirname + "/views/" + "LotsOfUserInfo.html" );
 })
 
 

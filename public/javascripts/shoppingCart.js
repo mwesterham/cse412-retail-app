@@ -25,13 +25,13 @@ function getShoppingCart(id = 289) {
     })
         .then(function (response) {
             // handle success
-            console.log("pokemon");
             var data = response.data;
-            console.log(data);
 
-            console.log(data[0]["brand"]);
-
-            var row = $(`<tr><th>${data[0]["brand"]}</th><td>E</td><td>E</td><td>E</td></tr>`);
-            $("#tablebody").append(row);
+            for (const key in data) {
+                var this_listing = data[key];
+                console.log(this_listing);
+                var row = $(`<tr><th>${this_listing["brand"]}</th><td>E</td><td>E</td><td>E</td></tr>`);
+                $("#tablebody").append(row);
+            }
         });
 }
