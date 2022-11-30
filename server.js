@@ -39,6 +39,11 @@ app.get('/addproduct.html', function(req,res){
   res.sendFile( __dirname + "/views/" + "AddProduct.html" );
 })
 
+app.get('/cart.html', function(req,res){
+  res.sendFile( __dirname + "/views/" + "ShoppingCart.html" );
+})
+
+
 // example: http://localhost:3000/get_all_listings
 app.get('/get_all_listings', async function (req, res) {
   try {
