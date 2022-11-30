@@ -1,4 +1,5 @@
 
+// On page load
 $(function () {
     console.log("ready!");
 
@@ -12,5 +13,25 @@ $(function () {
         });
 
     });
+
+    getShoppingCart();
 });
 
+function getShoppingCart(id = 289) {
+    axios.get('/get_buyer_cart', {
+        params: {
+            buyer_id: id,
+        }
+    })
+        .then(function (response) {
+            // handle success
+            console.log("pokemon");
+            var data = response.data;
+            console.log(data);
+
+            console.log(data[0]["brand"]);
+
+            var row = $(`<tr><th>${data[0]["brand"]}</th><td>E</td><td>E</td><td>E</td></tr>`);
+            $("#tablebody").append(row);
+        });
+}

@@ -5,63 +5,42 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="stylesheets/header.css" type="text/css">
   <link rel="stylesheet" href="stylesheets/shoppingCart.css" type="text/css">
-  
+
   <script src="jquery/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="axios/axios.js"></script>
   <script src="javascripts/shoppingCart.js" charset="utf-8"></script>
 
 
-    </head>
-    <body>
-    
+</head>
 
-      <ul class="nav">
-        <li><p>CSE412</p></li>
-        <li><button class="Logout" onclick="window.location.href='Webpage.html';">Logout</button></li>
-      </ul>
+<body>
 
-    </div>
 
-    <h2 id="h2">ShoppingCart</h2>
-    
-    <table>
-      <tr>
-        <th>Company</th>
-        <th>ProductName</th>
-        <th>ProductPrice</th>
-      </tr>
-      <tr>
-        <td>CName</td>
-        <td>Soup</td>
-        <td>$2.00</td>
-      </tr>
-      <tr>
-        <td>CName</td>
-        <td>Soup</td>
-        <td>$2.00</td>
-      </tr>
-      <tr>
-        <td>CName</td>
-        <td>Soup</td>
-        <td>$2.00</td>
-      </tr>
-      <tr>
-        <td>CName</td>
-        <td>Soup</td>
-        <td>$2.00</td>
-      </tr>
-      <tr>
-        <td>CName</td>
-        <td>Soup</td>
-        <td>$2.00</td>
-      </tr>
-      <tr>
-        <td>CName</td>
-        <td>Soup</td>
-        <td>$2.00</td>
-      </tr>
-    </table>
-    <br>
+  <ul class="nav">
+    <li>
+      <p>CSE412</p>
+    </li>
+    <li><button class="Logout" onclick="window.location.href='Webpage.html';">Logout</button></li>
+  </ul>
 
-    </body>
+  </div>
+
+  <h2 id="h2">ShoppingCart</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody id="tablebody">
+      
+    </tbody>
+  </table>
+  <br>
+
+</body>
