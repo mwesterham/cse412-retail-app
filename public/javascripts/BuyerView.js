@@ -30,7 +30,8 @@ function getListings() {
             for (const key in data) {
                 var this_listing = data[key];
                 console.log(this_listing);
-                var row = $(`<tr><th>${this_listing["brand"]}</th><td>E</td><td>E</td><td>E</td></tr>`);
+                var roundPrice = Math.round(this_listing.product_pricing * 100) / 100;
+                var row = $(`<tr><td>${this_listing["product_name"]}</td><td>${this_listing["brand"]}</td><td>${roundPrice}</td><td>${this_listing["product_supply"]}</td></tr>`);
                 $("#tablebody").append(row);
             }
         });
