@@ -26,9 +26,17 @@ app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 app.use('/axios', express.static(__dirname + '/node_modules/axios/dist/'));
 app.use(express.static('public'));
 
-// By default go to index.htm route
+// By default go to index.html route
 app.get('/', function (req, res) {
   res.redirect('/index.html')
+})
+
+app.get('/index.html', function (req, res) {
+  res.sendFile( __dirname + "/views/" + "index.html" );
+})
+
+app.get('/addproduct.html', function(req,res){
+  res.sendFile( __dirname + "/views/" + "AddProduct.html" );
 })
 
 // example: http://localhost:3000/get_all_listings

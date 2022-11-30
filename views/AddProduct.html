@@ -1,0 +1,33 @@
+<head>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/AddProduct.css" type="text/css">
+  
+  <script src="jquery/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="axios/axios.js"></script>
+  <script src="javascripts/AddProduct.js" charset="utf-8"></script>
+</head>
+<body>
+
+  <ul class="nav">
+    <li><p>CSE412</p></li>
+    <li><button class="Logout" onclick="window.location.href='Webpage.html';">Logout</button></li>
+  </ul>
+
+<!--Labels are the text title and textfield-->
+    <label for="ProductName">ProductName:</label>
+      <input type="text" id="ProductName" name="ProductName"><br><br>
+    <label for="ProductSupply">ProductSupply:</label>
+      <input type="text" id="ProductSupply" name="ProductSupply"><br><br>
+    <label for="ProductBrand">ProductBrand:</label>
+      <input type="text" id="ProductBrand" name="ProductBrand"><br><br>
+    <label for="ProductPrice">ProductPrice:</label>
+      <input type="text" id="ProductPrice" name="ProductPrice"><br><br>
+     
+<!--Button for the supplier to press when they want to add an Item-->
+    <button  id="AddItem" class="UserInput">Add Item</button>
+  <br>
+
+<!--Place holder for alerting the supplier they have added their item-->
+  <p id="Notification" style="display: none;"></p>    
+</body>

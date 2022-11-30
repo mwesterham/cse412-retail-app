@@ -30,8 +30,12 @@ App for CSE412 project phase 3 proposal
 
 `sudo -u postgres psql -d cse412`
 
-`/password`
+`\password`
 
-10. Now on your local machine (not the VM) start an ssh tunnel to the port found in step 3. Use the port set in step 6 to tunnel into. Also set a new port (in this case 4444) to access the postgres server through on your local machine.
+10. Return to terminal, now add ssh inside VM
+
+`sudo apt install openssh-server`
+
+11. Now on your local machine (not the VM) start an ssh tunnel to the port found in step 3. Use the port set in step 6 to tunnel into. Also set a new port (in this case 4444) to access the postgres server through on your local machine.
 
 `ssh -p 2222 mwesterham@localhost -L 4444:localhost:5432`
