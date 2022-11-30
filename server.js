@@ -104,6 +104,23 @@ app.get('/add_to_cart', async function (req, res) {
   }
 })
 
+// example: http://localhost:3000/add_user/?id=123123&email="234"&name="werdsf"&address="address"&phone_number="1111111111"
+app.get('/add_user', async function (req, res) {
+  var id = req.query.id;
+  var email = req.query.email;
+  var name = req.query.name;
+  var address = req.query.address;
+  var phone = req.query.phone_number;
+
+  try {
+    await client.query(`INSERT INTO Buyer VALUES(${id}, '${email}', '${name}', '${address}', '${phone}');`);
+    res.end("SUCCESS");
+  }
+  catch(e) {
+    res.end(JSON.stringify(e));
+  }
+})
+
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
