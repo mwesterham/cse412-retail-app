@@ -1,0 +1,157 @@
+
+<head>
+  <meta charset="utf-8">
+  <title>CSE412 Web App</title>
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="stylesheets/index.css" type="text/css">
+  
+  <script src="jquery/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="axios/axios.js"></script>
+  <script src="javascripts/index.js" charset="utf-8"></script>
+
+
+    <style>
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    
+    td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+    .nav {
+      background-color: rgb(0, 255, 234); 
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+        
+    .nav li {
+      display: inline-block;
+      font-size: 20px;
+      padding: 20px;
+    }
+
+    .Logout{
+      background-color:rgb(46, 164, 79);
+      color:white;
+      border-radius: 5px;
+      font-weight: bold;
+      font-size:15px;
+      width: 85px;
+      height: 35px;
+      border:none;
+      cursor:pointer;
+      margin-left:15px;
+      margin-right: 15px;
+      position: absolute;
+      right: 50px;
+      padding: 10px;
+    }
+        
+    .Logout:hover{
+        box-shadow: 5px 5px 5px rgba(0,0 ,0 , 0.15);
+    }
+    </style>
+    </head>
+    <body>
+    
+
+      <ul class="nav">
+        <li><p>CSE412</p></li>
+        <li><button class="Logout" onclick="window.location.href='Webpage.html';">Logout</button></li>
+      </ul>
+
+    </div>
+
+
+    
+  <!-- Needs to be added to header
+    Button for the user to press when they create their account
+  <button id="Logout" class="UserInput">Logout</button> 
+-->
+
+
+    <h2 id="h2">Products for Sale</h2>
+    
+    <table>
+      <tr>
+        <th>Company</th>
+        <th>Contact</th>
+        <th>Country</th>
+        <th>AddToCart</th>
+      </tr>
+      <tr>
+        <td>Alfreds Futterkiste</td>
+        <td>Maria Anders</td>
+        <td>Germany</td>
+        <td><button id="AddCartButton" class="btn-class">AddToCart</button></td>
+      </tr>
+      <tr>
+        <td>Centro comercial Moctezuma</td>
+        <td>Francisco Chang</td>
+        <td>Mexico</td>
+        <td><button id="AddCartButton" class="btn-class">AddToCart</button></td>
+      </tr>
+      <tr>
+        <td>Ernst Handel</td>
+        <td>Roland Mendel</td>
+        <td>Austria</td>
+        <td><button id="AddCartButton" class="btn-class">AddToCart</button></td>
+      </tr>
+      <tr>
+        <td>Island Trading</td>
+        <td>Helen Bennett</td>
+        <td>UK</td>
+        <td><button id="AddCartButton" class="btn-class">AddToCart</button></td>
+      </tr>
+      <tr>
+        <td>Laughing Bacchus Winecellars</td>
+        <td>Yoshi Tannamuri</td>
+        <td>Canada</td>
+        <td><button id="AddCartButton" class="btn-class">AddToCart</button></td>
+      </tr>
+      <tr>
+        <td>Magazzini Alimentari Riuniti</td>
+        <td>Giovanni Rovelli</td>
+        <td>Italy</td>
+        <td><button id="AddCartButton" class="btn-class">AddToCart</button></td>
+      </tr>
+    </table>
+    <br>
+
+    <!--Placeholder for notification to buyer-->
+    <p id="Notification" style="display: none;"></p>
+    
+    </body>
+
+<script>
+
+//creates a variable to obtain all the buttons with the same class btn-class
+  let btns = document.querySelectorAll(".btn-class");
+//Allows all buttons with the same class to have the same event be handled
+  btns.forEach(btn => {
+//When they are clicked the following event will be handled
+    btn.addEventListener('click', (event)=> {
+      AddToCartButton();  
+    });
+
+  });
+
+  function AddToCartButton() 
+  {
+    document.getElementById("Notification").style.display='inline';
+    document.getElementById("Notification").innerHTML = "Item has been added to cart!";
+  }
+  
+
+</script>
