@@ -15,6 +15,10 @@ function Login(){
     {
         window.location.href = "/AddProduct.html";
     }
+    else if(Username == "")
+    {
+        alert("Please input a value");
+    }
     else{
         window.location.href = "/BuyerView.html";
     }
