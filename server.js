@@ -119,7 +119,24 @@ app.get('/add_to_cart', async function (req, res) {
   }
 })
 
-// example: http://localhost:3000/add_user/?id=123123&email="234"&name="werdsf"&address="address"&phone_number="1111111111"
+// example: http://localhost:3000/add_listing/?listing_id=1099&price=0.5&supply=100&brand=Nike&name=KewlShoe
+app.get('/add_listing', async function (req, res) {
+  var listing_id = req.query.listing_id;
+  var price = req.query.price;
+  var supply = req.query.supply;
+  var brand = req.query.brand;
+  var name = req.query.name;
+  
+  try {
+    await client.query(`INSERT INTO listing VALUES(${listing_id}, ${price}, ${supply}, '${brand}', '${name}');`);
+    res.end("SUCCESS");
+  }
+  catch(e) {
+    res.end(JSON.stringify(e));
+  }
+})
+
+// example: http://localhost:3000/add_user/?id=123123&email=234&name=werdsf&address=address&phone_number=1111111111
 app.get('/add_user', async function (req, res) {
   var id = req.query.id;
   var email = req.query.email;
