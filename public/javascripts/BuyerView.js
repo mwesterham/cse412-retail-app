@@ -21,7 +21,7 @@ function AddToCartButton(product_name, listing_id) {
             buyer_id: 289,
             listing_id: listing_id,
             quantity: 3,
-            status: "ORDERED"
+            status: "In Cart"
         }
     })
         .then(function (response) {
