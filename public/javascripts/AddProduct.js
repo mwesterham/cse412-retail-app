@@ -1,7 +1,6 @@
 //Activated when a User clicks on the "Add Item" button
 // Shorthand for $( document ).ready()
 
-
 // On page load
 $(function () {
   console.log("ready!");
@@ -12,27 +11,33 @@ $(function () {
     var pBrand = document.getElementById("ProductBrand").value;
     var pPrice = document.getElementById("ProductPrice").value;
     if (pName == "") {
-      alert("Please fill out the product name");
+      alert("Please fill out the Product Name");
     }
-    else if (pSupply <= 0) {
-      alert("Please input a digit greater than 0 for supply");
+    else if (pSupply === NaN || pSupply <= 0) {
+      alert("Please input a digit greater than 0 for Product Supply");
     }
     else if (pBrand == "") {
-      alert("Please fill out the product brand");
+      alert("Please fill out the Product Brand");
     }
-    else if (pPrice <= 0) {
-      alert("Please input a digit greater than 0 for price");
+    else if (pPrice === NaN || pPrice <= 0) {
+      alert("Please input a digit greater than 0 for Product Price");
     }
-
-
     else {
-      ItemAdded();
+      axios.get('/add_listing', {
+        params: {
+            listing_id:1099,
+            price: pPrice,
+            supply: pSupply,
+            brand: pBrand,
+            name:pName   
+        }
+    })
+        .then(function (response) {
+            // handle success
+            alert(pName.trim() + " has been added!");
+        });
     }
   });
 });
 
-//Creates the "Back To Webpage" Button for the supplier to exit and lets them know their item has been added.   
-function ItemAdded() {
-  document.getElementById("Notification").style.display = 'inline';//reveals the text for Notification
-  document.getElementById("Notification").innerHTML = "Item has been Added!"//Modifies the information for Notification
-}
+

@@ -33,6 +33,7 @@ function purchase(id = 289) {
     })
         .then(function (response) {
             // handle success
+            /*
             var data = response.data;
             for (const key in data) {
                 var this_listing = data[key];
@@ -44,7 +45,7 @@ function purchase(id = 289) {
                 if (this_listing.status === " In Cart ") {
                     this_listing.status = "ORDERED";
                 }
-            }
+            }*/
             alert('Your items have been purchased');
         });
 }
