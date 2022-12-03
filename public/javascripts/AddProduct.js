@@ -25,7 +25,7 @@ $(function () {
     else {
       axios.get('/add_listing', {
         params: {
-            listing_id:1099,
+            listing_id: Math.floor(Math.random() * 100000),
             price: pPrice,
             supply: pSupply,
             brand: pBrand,

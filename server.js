@@ -86,6 +86,18 @@ app.get('/get_buyer_cart', async function (req, res) {
   }
 })
 
+// example: http://localhost:3000/get_buyers
+app.get('/get_buyers', async function (req, res) {
+  try {
+    const result = await client.query(`SELECT * FROM buyer;`);
+    res.end(JSON.stringify(result.rows));
+  }
+  catch(e) {
+    res.end(JSON.stringify(e));
+  }
+})
+
+
 // example: http://localhost:3000/get_buyer_info/?buyer_id=289
 app.get('/get_buyer_info', async function (req, res) {
   var buyer_id = req.query.buyer_id;
