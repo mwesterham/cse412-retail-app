@@ -1,6 +1,9 @@
-
+var loggedId = localStorage.getItem('UsersInfo');
+var loggedUser = localStorage.getItem('loggedIn');
 // On page load
 $(function () {
+
+    console.log("Id is" + loggedId);
     getShoppingCart();
     getBuyerInfo();
 
@@ -16,7 +19,7 @@ $(function () {
 
 });
 
-function getShoppingCart(id = 289) {
+function getShoppingCart(id = loggedId) {
     axios.get('/get_buyer_cart', {
         params: {
             buyer_id: id,
@@ -36,7 +39,7 @@ function getShoppingCart(id = 289) {
 }
 
 
-function clearCartButton(id = 289) {
+function clearCartButton(id = 125) {
    // alert(document.getElementById("cartTableBody").tBodies[0].innerHTML);
 
     //alert(document.getElementById("cartTableBody").tBodies.item(0).innerHTML);
@@ -54,21 +57,22 @@ function clearCartButton(id = 289) {
             for (const key in data) {
                 var this_listing = data[key];
                 console.log(this_listing);
+                printNumber();
                 //var row = $(`<tr><th>${this_listing["product_name"]}</th><td>${this_listing["brand"]}</td><td>${this_listing["delivery_time"]}</td><td>${roundPrice}</td><td>${this_listing["status"]}</td></tr>`);
                 //$("$buyerTableBody").remove();
-                alert("seond Clear is registered");
+                //alert("seond Clear is registered");
             }
             
             
         });
 }
 
-function orderHistory(id = 289) {
+function orderHistory(id = 125) {
 
 }
 
 
-function purchase(id = 289) {
+function purchase(id = loggedId) {
     axios.get('/get_buyer_cart', {
         params: {
             buyer_id: id,
@@ -89,12 +93,19 @@ function purchase(id = 289) {
                     this_listing.status = "ORDERED";
                 }
             }*/
-            alert('Your items have been purchased');
+            
+            //alert('Your items have been purchased');
+            //var name = getName();
+            
+            //alert("The  logged user is: "+ loggedUser);
+            var theirID = loggedId;
+            alert("The user ID is: "+ theirID);
+            
         });
 }
 
 
-function getBuyerInfo(id = 289) {
+function getBuyerInfo(id = loggedId) {
 
     var total = 0;
 

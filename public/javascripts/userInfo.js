@@ -4,29 +4,41 @@ $(function () {
   
   $("#CreateAcct").click(function () {
     //Variable initizations
-    var name = document.getElementById("Name").value;
-    var phoneNumber = parseInt(document.getElementById("PhoneNumber").value);
-    var address = document.getElementById("Address").value;
-    var email = document.getElementById("Email").value;
+    var acctName = document.getElementById("Name").value;
+    var acctPhoneNumber = parseInt(document.getElementById("PhoneNumber").value);
+    var acctAddress = document.getElementById("Address").value;
+    var acctEmail = document.getElementById("Email").value;
 
-    if (name == "") {
+    if (acctName == "") {
       alert("Please fill out your name");
     }
-    else if (phoneNumber < 999999999) {
+    else if (acctPhoneNumber < 999999999) {
       alert("Please input a phone number");
     }
-    else if (phoneNumber === NaN) {
+    else if (acctPhoneNumber === NaN) {
       alert("Please input a phone number");
     }
-    else if (address == "") {
+    else if (acctAddress == "") {
       alert("Please fill out your address");
     }
-    else if (email == "") {
+    else if (acctEmail == "") {
       alert("Please fill out your email");
     }
 
     else {
-      NewButton();
+      axios.get('/add_user',{
+         params:{
+          id:Math.floor(Math.random() * 100000),
+          email:acctEmail,
+          name:acctName,
+          address:acctAddress,
+          phone:acctPhoneNumber
+         }
+      })
+      .then(function (response) {
+        NewButton();
+    });
+      
     }
 
   });
