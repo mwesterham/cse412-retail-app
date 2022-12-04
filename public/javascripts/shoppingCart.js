@@ -2,16 +2,12 @@ var loggedId = localStorage.getItem('UsersInfo');
 var loggedUser = localStorage.getItem('loggedIn');
 // On page load
 $(function () {
-
-    console.log("Id is" + loggedId);
     getShoppingCart();
     getBuyerInfo();
 
     $("#clearCart").click(function () {
         clearCartButton(loggedId);
     });
-
-
 });
 
 function getShoppingCart(id = loggedId) {
@@ -43,36 +39,44 @@ function clearCartButton(id = loggedId) {
         .then(function (response) {
             // handle success
             location.reload();
-            alert("Cart has been cleared!");          
+            alert("Cart has been cleared!");
         });
 }
 
-
-
 function purchase(id = loggedId) {
- alert("Purchase pressed")
-
- axios.get('/get_buyer_cart', {
-    params: {
-        buyer_id: id,
-    }
-})
-    .then(function (response) {
-        var data = response.data;
-        for (const key in data) {
-            var this_listing = data[key].listing_id;
-            console.log(this_listing);
+    axios.get('/get_buyer_cart', {
+        params: {
+            buyer_id: id,
         }
-    });
+    })
+        .then(function (response) {
+            var data = response.data;
+            for (const key in data) {
+                var this_listing = data[key];
+                var theIdForListing = data[key].listing_id;
+                var status = data[key].status.trim();
+                if (status === "In Cart") {
+                    axios.get('/update_contains_status', {
+                        params: {
+                            buyer_id: id,
+                            listing_id: theIdForListing,
+                            status: 'Ordered',
+                        }
+                    })
+                        .then(function (response) {
+                            window.location.reload();
+                        });
+                }
+            }
+            alert('Your items have been purchased!');
+
+        });
 
 
 }
 
-
 function getBuyerInfo(id = loggedId) {
-
     var total = 0;
-
     axios.get('/get_buyer_cart', {
         params: {
             buyer_id: id,
@@ -85,10 +89,9 @@ function getBuyerInfo(id = loggedId) {
                 var roundPrice = Math.round(this_listing.product_pricing * 100) / 100;
                 total += roundPrice;
             }
+            total = total + (total * 0.28);
             total = (Math.round(total * 100) / 100);
-            total = total + (total*0.28);
         });
-
     axios.get('/get_buyer_info', {
         params: {
             buyer_id: id,

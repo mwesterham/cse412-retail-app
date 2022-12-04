@@ -1,22 +1,13 @@
-var ducks = "";
 $(function () {
-    console.log("ready!");
-    
-    //var NameOfUser = "";    
     $("#Login").click(function () {
         Login();
     });
-   
-
 });
-
 
 function Login() {
     //admin = supplier send to add list 
     //otherwise send to buyer page
     var Username = $("#Username").val();
-    //console.log(Username);
-
     if (Username == "admin") {
         window.location.href = "/AddProduct.html";
     }
@@ -45,15 +36,12 @@ function Login() {
                 var data = response.data;
                 for (const key in data) {
                     maxAmtOfAcct = maxAmtOfAcct + 1;
-
                     var usersFullName = data[key].fullname;
                     var usersIDNum = data[key].buyer_id;
                     console.log(usersFullName);
-                    //alert("The save idNum: " + usersIDNum);
                     if (verify === usersFullName.trim()) {
-                      //  keepsName(usersFullName);
-                        localStorage.setItem('loggedIn',usersFullName.trim());
-                        localStorage.setItem('UsersInfo',usersIDNum);
+                        localStorage.setItem('loggedIn', usersFullName.trim());
+                        localStorage.setItem('UsersInfo', usersIDNum);
                         window.location.href = "/BuyerView.html";
                         break;
                     }
@@ -65,42 +53,3 @@ function Login() {
     }
 
 }
-
-function keepsName(Username)
-{
-    var verify = Username.trim();
-    var users_id = 0;
-    axios.get('/get_buyers', {
-    })
-        .then(function (response) {
-            var data = response.data;
-            for (const key in data) {
-                var this_listing = data[key];
-                var buyerNames = data[key].fullname;
-                //alert("Verify is " + verify + " buyerNames" + buyerNames);
-                if (verify === buyerNames.trim()) {
-                    users_id = this_listing.buyer_id;
-                    ducks = buyerNames;
-                    //alert("Inside:" + users_id);
-                    break;
-                }
-               
-            }
-           // alert("Outside: " +users_id);
-        });
-}
-
-/*
-function getName()
-{
-    var provideName = ducks;
-    alert(provideName);
-    return provideName; 
-}
-
-
-function printNumber()
-{
-    console.log("Prints numbers: 2");
-}
-*/
