@@ -35,7 +35,7 @@ function getListings() {
                 var this_listing = data[key];
                 console.log(this_listing);
                 var roundPrice = Math.round(this_listing.product_pricing * 100) / 100;
-                var AddToCart = `<button type="button" onclick="AddToCartButton('${loggedId},${this_listing.product_name}', '${this_listing.listing_id}')" class="btn btn-success">Add To Cart</button>`;
+                var AddToCart = `<button type="button" onclick="AddToCartButton(${loggedId},'${this_listing.product_name}', '${this_listing.listing_id}')" class="btn btn-success">Add To Cart</button>`;
                 var row = $(`<tr><td>${this_listing["product_name"]}</td><td>${this_listing["brand"]}</td><td>${roundPrice}</td><td>${this_listing["product_supply"]}</td><td>${AddToCart}</td></tr>`);
                 $("#buyerTableBody").append(row);
               //  $("#cartTableBody").append(row);    

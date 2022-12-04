@@ -165,6 +165,20 @@ app.get('/add_user', async function (req, res) {
   }
 })
 
+// example: http://localhost:3000/update_contains_status/?buyer_id=289&listing_id=218&status=ORDEREDDDDD
+app.get('/update_contains_status', async function (req, res) {
+  var buyer_id = req.query.buyer_id;
+  var listing_id = req.query.listing_id;
+  var status = req.query.status;
+
+  try {
+    await client.query(`UPDATE Contains SET status='${status}' WHERE buyer_id = ${buyer_id} AND listing_id = ${listing_id};`);
+    res.end("SUCCESS");
+  }
+  catch(e) {
+    res.end(JSON.stringify(e));
+  }
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
