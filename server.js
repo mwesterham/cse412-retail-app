@@ -180,6 +180,19 @@ app.get('/update_contains_status', async function (req, res) {
   }
 })
 
+// example: http://localhost:3000/clear_cart?buyer_id=289
+app.get('/clear_cart', async function (req, res) {
+  var buyer_id = req.query.buyer_id;
+
+  try {
+    await client.query(`DELETE FROM contains WHERE buyer_id=${buyer_id};`);
+    res.end("SUCCESS");
+  }
+  catch(e) {
+    res.end(JSON.stringify(e));
+  }
+})
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
