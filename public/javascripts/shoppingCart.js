@@ -11,11 +11,6 @@ $(function () {
         clearCartButton(loggedId);
     });
 
-    $("#OrderHistory").click(function () {
-        orderHistory();
-    });
-    
-
 
 });
 
@@ -55,7 +50,22 @@ function clearCartButton(id = loggedId) {
 
 
 function purchase(id = loggedId) {
- 
+ alert("Purchase pressed")
+
+ axios.get('/get_buyer_cart', {
+    params: {
+        buyer_id: id,
+    }
+})
+    .then(function (response) {
+        var data = response.data;
+        for (const key in data) {
+            var this_listing = data[key].listing_id;
+            console.log(this_listing);
+        }
+    });
+
+
 }
 
 
@@ -75,7 +85,8 @@ function getBuyerInfo(id = loggedId) {
                 var roundPrice = Math.round(this_listing.product_pricing * 100) / 100;
                 total += roundPrice;
             }
-            total = Math.round(total * 100) / 100;
+            total = (Math.round(total * 100) / 100);
+            total = total + (total*0.28);
         });
 
     axios.get('/get_buyer_info', {
