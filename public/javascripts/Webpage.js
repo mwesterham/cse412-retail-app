@@ -15,7 +15,7 @@ function Login() {
     //admin = supplier send to add list 
     //otherwise send to buyer page
     var Username = $("#Username").val();
-    console.log(Username);
+    //console.log(Username);
 
     if (Username == "admin") {
         window.location.href = "/AddProduct.html";
@@ -51,7 +51,7 @@ function Login() {
                     console.log(usersFullName);
                     //alert("The save idNum: " + usersIDNum);
                     if (verify === usersFullName.trim()) {
-                        keepsName(usersFullName);
+                      //  keepsName(usersFullName);
                         localStorage.setItem('loggedIn',usersFullName.trim());
                         localStorage.setItem('UsersInfo',usersIDNum);
                         window.location.href = "/BuyerView.html";

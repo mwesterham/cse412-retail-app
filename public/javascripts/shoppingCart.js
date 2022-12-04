@@ -39,7 +39,7 @@ function getShoppingCart(id = loggedId) {
 }
 
 
-function clearCartButton(id = 125) {
+function clearCartButton(id = loggedId) {
     axios.get('/clear_cart', {
         params: {
             buyer_id: id,
@@ -52,41 +52,10 @@ function clearCartButton(id = 125) {
         });
 }
 
-function orderHistory(id = 125) {
-
-}
 
 
 function purchase(id = loggedId) {
-    axios.get('/get_buyer_cart', {
-        params: {
-            buyer_id: id,
-        }
-    })
-        .then(function (response) {
-            // handle success
-            /*
-            var data = response.data;
-            for (const key in data) {
-                var this_listing = data[key];
-                var status = this_listing.status;
-                console.log(status.trim());
-                console.log(status.toString() === "\"In Cart\"");
-
-
-                if (this_listing.status === " In Cart ") {
-                    this_listing.status = "ORDERED";
-                }
-            }*/
-            
-            //alert('Your items have been purchased');
-            //var name = getName();
-            
-            //alert("The  logged user is: "+ loggedUser);
-            var theirID = loggedId;
-            alert("The user ID is: "+ theirID);
-            
-        });
+ 
 }
 
 
